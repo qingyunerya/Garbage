@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/Background">
+        <file alias="bbb">images/bt_bg_blue.png</file>
+        <file alias="ln">images/light_n.png</file>
+        <file alias="ly">images/light_y.png</file>
+        <file alias="tb">images/tec_bg.png</file>
+    </qresource>
+</RCC>
