@@ -5,6 +5,7 @@
 class QTcpSocket;
 class QTcpServer;
 class QTimer;
+class QGroupBox;
 namespace Ui {
 class MainWindow;
 }
@@ -22,6 +23,7 @@ public:
     QList<QString> commandList;
     QList<QString> reCommandList;
     QList<QTcpSocket *> ClientSocketList;
+    QGroupBox *gb;
     QTcpServer *tcp_server;
     QTcpSocket *client;
     QString consoleStr;

@@ -35,12 +35,16 @@ MainWindow::MainWindow(QWidget *parent) :
     reCommandList.append("remote_status_l1:");
     reCommandList.append("remote_status_l2:");
     reCommandList.append("remote_status_l3:");
-    ui->groupBox->setEnabled(false);
+    //ui->groupBox->setEnabled(false);
     QPixmap tb=QPixmap(":/Background/tb");
     tb.scaled(ui->centralWidget->size(),Qt::KeepAspectRatio);
     ui->centralWidget->setAutoFillBackground(true);
     palette.setBrush(QPalette::Window,QBrush(tb));
     ui->centralWidget->setPalette(palette);
+    gb=new QGroupBox(this);
+    ui->gridLayout_4->addWidget(gb,0,0);
+    gb->setVisible(true);
+    debug2("远程控制不可用");
 }
 
 MainWindow::~MainWindow()
@@ -119,7 +123,9 @@ void MainWindow::newConnection()
         this->client=client_socket;
         }
     }
-    ui->groupBox->setEnabled(true);
+    //ui->groupBox->setEnabled(true);
+    gb->setVisible(false);
+    debug2("远程控制已启用");
     isRemoteControl=true;
 }
 
@@ -228,7 +234,9 @@ void MainWindow::disconnected()
     }
     if(ui->comboBox->currentText().trimmed().isEmpty())
     {
-        ui->groupBox->setEnabled(false);
+        //ui->groupBox->setEnabled(false);
+        debug2("远程控制已关闭");
+        gb->setVisible(true);
         debug(client->peerAddress().toString()+"已断开服务端连接");
         isRemoteControl=false;
         ui->textEdit_sa->clear();
