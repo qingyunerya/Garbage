@@ -119,8 +119,11 @@ void MainWindow::newConnection()
     QTcpSocket *client_socket;
     foreach (client_socket, this->ClientSocketList)
     {
-        if(client_socket->peerAddress().toString()==ui->comboBox->currentText()){
-        this->client=client_socket;
+        if(client_socket->peerAddress().toString()==ui->comboBox->currentText())
+        {
+             this->client=client_socket;
+            ui->lineEdit_sp->setText(QString::number(client->peerPort(),10));
+            ui->lineEdit_sa->setText(tcp_server->serverAddress().toString()+"port:"+QString::number(tcp_server->serverPort(),10));
         }
     }
     //ui->groupBox->setEnabled(true);
@@ -267,6 +270,8 @@ void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
     {
         if(client_socket->peerAddress().toString()==arg1){
         this->client=client_socket;
+        ui->lineEdit_sp->setText(QString::number(client->peerPort(),10));
+        ui->lineEdit_sa->setText(tcp_server->serverAddress().toString()+"port:"+QString::number(tcp_server->serverPort(),10));
         }
     }
     debug("与"+arg1+"通信中");

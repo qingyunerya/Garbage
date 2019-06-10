@@ -354,7 +354,6 @@ border-radius: 4px;
        <zorder>textEdit_console_2</zorder>
        <zorder>label_9</zorder>
        <zorder>line_9</zorder>
-       <zorder>gridLayoutWidget</zorder>
        <zorder>connectToClient</zorder>
       </widget>
       <widget class="QWidget" name="tab_linkConfig">
@@ -406,7 +405,7 @@ border-radius: 4px;
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_ca">
+           <widget class="QLineEdit" name="lineEdit_sa">
             <property name="placeholderText">
              <string>服务器地址</string>
             </property>
